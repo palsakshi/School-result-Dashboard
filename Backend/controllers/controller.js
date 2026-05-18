@@ -4,6 +4,7 @@ const Students= require("../models/Students");
 exports.createStudent = async (req, res) => {
   try {
     const student = await Students.create(req.body);
+    console.log('Is backend connected with frontend')
     res.status(201).json(student);
   } catch (error) {
     res.status(500).json({ error: error.message });

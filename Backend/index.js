@@ -4,8 +4,9 @@ const { connectDB, sequelize } = require("./config/db");
 const userRoutes = require("./routes/routes");
 const cors = require("cors");
 const app = express();
-app.use(express.json());
 
+app.use(cors());
+app.use(express.json());
 // routes
 app.use("/api/users", userRoutes);
 
@@ -16,7 +17,7 @@ const startServer = async () => {
   await sequelize.sync(); // creates tables
 
   app.listen(process.env.PORT, () => {
-    console.log("is thi backen drunning");
+    console.log("is this backend running");
     console.log(`Server running on port ${process.env.PORT}`);
   });
 };
